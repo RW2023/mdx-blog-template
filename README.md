@@ -1,3 +1,23 @@
+# My Next.js MDX Blog
+
+This project is a standalone blog built using **Next.js**, **MDX**, and **Tailwind CSS**. It includes a simple article listing with pagination and features such as dark mode and basic animations using **Framer Motion**. The blog content is created with markdown and styled with **Tailwind CSS** and **DaisyUI** components.
+
+## Features
+
+- **MDX Support**: Write your blog posts in MDX for the flexibility of combining markdown and React components.
+- **Dark Mode**: Supports both light and dark themes with custom styling.
+- **Pagination**: Display a set number of posts per page with navigation between pages.
+- **Framer Motion Animations**: Subtle animations for a better user experience.
+- **Custom Styling**: Utilizes Tailwind CSS for custom themes and responsive design.
+
+## Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-username/your-repo-name.git
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
