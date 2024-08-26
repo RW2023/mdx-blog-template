@@ -19,6 +19,27 @@ This project is a standalone blog built using **Next.js**, **MDX**, and **Tailwi
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+##Creating a New Post
+--
+Create a new .mdx file in the content/posts directory.
+
+Add the frontmatter at the top of your file, like this:
+---
+title: "My New Blog Post"
+date: "2024-08-30"
+featuredImage: "/images/my-image.jpg"
+---
+
+# My New Blog Post
+
+Here is the content of the blog post written in markdown.
+
+##Contributing
+Contributions are welcome! If you find any issues or want to improve the project, feel free to submit a pull request.
+
+License
+This project is licensed under the MIT License. See the LICENSE file for more details.
+
 ## Getting Started
 
 First, run the development server:
