@@ -61,15 +61,14 @@ const Navbar = () => {
                             {/* Logo Image */}
                             <Link href="/">
                                 <Image
-                                    src="/logo.webp"
-                                    alt="Logo"
+                                    src="https://via.placeholder.com/150" alt="Logo"
                                     width={60}
                                     height={60}
                                     className="m-1 rounded-lg"
                                 />
                             </Link>
                             {/* Company Name */}
-                            <span className="ml-2">RW</span>
+                            <span className="ml-2">company</span>
                         </div>
                     </span>
                 </Link>
@@ -121,16 +120,6 @@ const Navbar = () => {
                     <Link href="/blog" onClick={closeNavbar}>
                         <span className="block mt-4 lg:inline-block lg:mt-0 text-black dark:text-white text-xl hover:underline mr-4 cursor-pointer">
                             Blog
-                        </span>
-                    </Link>
-                    <Link href="/video" onClick={closeNavbar}>
-                        <span className="block mt-4 lg:inline-block lg:mt-0 text-black dark:text-white text-xl hover:underline mr-4 cursor-pointer">
-                            Videos
-                        </span>
-                    </Link>
-                    <Link href="/links" onClick={closeNavbar}>
-                        <span className="block mt-4 lg:inline-block lg:mt-0 text-black dark:text-white text-xl hover:underline mr-4 cursor-pointer">
-                            Links
                         </span>
                     </Link>
                 </div>
