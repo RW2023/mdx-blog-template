@@ -14,42 +14,34 @@ This project is a standalone blog built using **Next.js**, **MDX**, **Tailwind C
 
 1. Clone the repository:
 
-``` bash
-git clone https://github.com/RW2023/mdx-blog-template.git
-```Navigate to the project directory:
-## Features
+    ```bash
+    git clone https://github.com/RW2023/mdx-blog-template.git
+    ```
 
-* **MDX Support**: Write your blog posts in MDX for the flexibility of combining markdown and React components.
-* **Dark Mode**: Supports both light and dark themes with custom styling.
-* **Pagination**: Display a set number of posts per page with navigation between pages.
-* **Framer Motion Animations**: Subtle animations for a better user experience.
-* **Custom Styling**: Utilizes Tailwind CSS for custom themes and responsive design.
+2. Navigate to the project directory:
 
-## Installation
+    ```bash
+    cd mdx-blog-template
+    ```
 
-1. Clone the repository:
+3. Install dependencies:
 
+    ```bash
+    npm install
+    ```
 
-git clone https://github.com/RW2023/mdx-blog-template.git
-```
-Navigate to the project directory:
-cd mdx-blog-template
-
-Install dependencies:
-npm install
-
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a [Next.js](https://nextjs.org/) project bootstrapped with `create-next-app`.
 
 ## Creating a New Post
 
-Create a new .mdx file in the content/posts directory.
+Create a new `.mdx` file in the `content/posts` directory.
 
-Add the frontmatter at the top of your file, like this:
-\-\-\-
+
+---
 title: "My New Blog Post"
 date: "2024-08-30"
 featuredImage: "/images/my-image.jpg"
-\-\-\-
+---
 
 # My New Blog Post
 
@@ -66,7 +58,7 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 
 First, run the development server:
 
-``` bash
+```bash
 npm run dev
 # or
 yarn dev
@@ -74,7 +66,7 @@ yarn dev
 pnpm dev
 # or
 bun dev
-```
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
