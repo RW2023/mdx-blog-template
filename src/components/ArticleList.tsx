@@ -10,8 +10,9 @@ interface Post {
     frontMatter: {
         title: string;
         date: string;
-        author: string; // Add the author field
-        featuredImage?: string; // Allow it to be optional
+        author: string;
+        featuredImage?: string;
+        keywords?: string[];  // Added keywords field
     };
 }
 
@@ -26,9 +27,13 @@ const ArticleList: React.FC<ArticleListProps> = ({ posts }) => {
         setSearchQuery(e.target.value.toLowerCase());
     };
 
-    const filteredPosts = posts.filter((post) =>
-        post.frontMatter.title.toLowerCase().includes(searchQuery)
-    );
+    const filteredPosts = posts.filter((post) => {
+        const query = searchQuery.toLowerCase();
+        return (
+            post.frontMatter.title.toLowerCase().includes(query) ||
+            post.frontMatter.keywords?.some((keyword) => keyword.toLowerCase().includes(query))
+        );
+    });
 
     const cardVariants = {
         hidden: { opacity: 0, y: 20 },
@@ -51,7 +56,7 @@ const ArticleList: React.FC<ArticleListProps> = ({ posts }) => {
                 <input
                     id="search"
                     type="text"
-                    placeholder="Search posts..."
+                    placeholder="Search posts by title or keywords..."
                     value={searchQuery}
                     onChange={handleSearchChange}
                     className="w-full p-3 rounded-md border border-gray-300 bg-white text-gray-900 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent dark:bg-[#2e3c45] dark:text-gray-200 dark:placeholder-gray-400 dark:border-dark-stroke dark:focus:ring-dark-primary"

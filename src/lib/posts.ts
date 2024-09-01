@@ -1,3 +1,4 @@
+//src/lib/posts.ts
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
@@ -9,6 +10,7 @@ interface FrontMatter {
   date: string;
   author: string;
   featuredImage?: string;
+  keywords?: string[];  // Added keywords field
 }
 
 interface Post {
@@ -28,18 +30,16 @@ export async function getPostData(slug: string): Promise<{ frontMatter: FrontMat
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data: frontMatter, content } = matter(fileContents);
 
-  // Debugging: Check the extracted front matter
- 
-
   const safeFrontMatter = {
     ...frontMatter,
-    featuredImage: frontMatter.featuredImage || '', // Ensure featuredImage is always a string
-    date: frontMatter.date ? new Date(frontMatter.date).toLocaleDateString('en-US', {
+    featuredImage: frontMatter.featuredImage || '',
+    date: new Date(frontMatter.date).toLocaleDateString('en-US', {
       day: 'numeric',
       month: 'long',
       year: 'numeric',
-    }) : '', // Format date here, ensure date is valid
-    author: frontMatter.author || 'Unknown', // Ensure author is always a string
+    }),
+    author: frontMatter.author || 'Unknown',
+    keywords: frontMatter.keywords || [],  // Ensure keywords is always an array
   };
 
   return {
@@ -61,13 +61,14 @@ export function getAllPosts(): Post[] {
 
       const safeFrontMatter = {
         ...frontMatter,
-        featuredImage: frontMatter.featuredImage || '', // Ensure featuredImage is always a string
-        date: frontMatter.date ? new Date(frontMatter.date).toLocaleDateString('en-US', {
+        featuredImage: frontMatter.featuredImage || '',
+        date: new Date(frontMatter.date).toLocaleDateString('en-US', {
           day: 'numeric',
           month: 'long',
           year: 'numeric',
-        }) : '', // Format date here, ensure date is valid
-        author: frontMatter.author || 'Unknown', // Ensure author is always a string
+        }),
+        author: frontMatter.author || 'Unknown',
+        keywords: frontMatter.keywords || [],  // Ensure keywords is always an array
       };
 
       return {
@@ -75,5 +76,5 @@ export function getAllPosts(): Post[] {
         frontMatter: safeFrontMatter as FrontMatter,
       };
     })
-    .sort((a, b) => new Date(b.frontMatter.date).getTime() - new Date(a.frontMatter.date).getTime()); // Sort by date
+    .sort((a, b) => new Date(b.frontMatter.date).getTime() - new Date(a.frontMatter.date).getTime());
 }
