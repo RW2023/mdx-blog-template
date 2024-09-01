@@ -6,11 +6,12 @@ import Button from './Button';  // Ensure this is the correct path to your Butto
 interface BlogPostLayoutProps {
     title: string;
     date: string;
+    author: string; // Add the author field
     featuredImage?: string;
     children: ReactNode;
 }
 
-const BlogPostLayout: FC<BlogPostLayoutProps> = ({ title, date, featuredImage, children }) => {
+const BlogPostLayout: FC<BlogPostLayoutProps> = ({ title, date, author, featuredImage, children }) => {
     return (
         <div className="container mx-auto px-4 py-8">
             {featuredImage && (
@@ -29,7 +30,9 @@ const BlogPostLayout: FC<BlogPostLayoutProps> = ({ title, date, featuredImage, c
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-headline dark:text-dark-headline mb-2">
                     {title}
                 </h1>
-                <p className="text-lg text-paragraph dark:text-dark-paragraph">{date}</p>
+                <p className="text-lg text-paragraph dark:text-dark-paragraph">
+                    {date} - By {author}
+                </p>
             </header>
             <article className="prose prose-lg dark:prose-invert max-w-none">
                 {children}
