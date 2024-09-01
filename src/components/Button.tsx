@@ -14,7 +14,7 @@ const Button: FC<ButtonProps> = ({ children, onClick, type = 'button', href, cla
     const baseClasses = "rounded-lg px-6 py-2 transition-colors duration-300 ease-in-out transform focus:outline-none focus:ring-2 focus:ring-offset-2 font-semibold";
 
     // Primary button styles
-    const primaryClasses = "bg-primary text-buttonText hover:bg-secondary hover:text-buttonText";
+    const primaryClasses = "bg-button text-buttonText hover:bg-secondary hover:text-buttonText";
 
     // Dark mode styles with improved readability for text
     const darkModePrimaryClasses = "dark:bg-dark-primary dark:text-black dark:hover:bg-dark-secondary dark:hover:text-dark-buttonText";
