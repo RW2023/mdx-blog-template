@@ -7,6 +7,7 @@ const postsDirectory = path.join(process.cwd(), 'content/posts');
 interface FrontMatter {
   title: string;
   date: string;
+  author: string;
   featuredImage?: string;
 }
 
@@ -27,14 +28,18 @@ export async function getPostData(slug: string): Promise<{ frontMatter: FrontMat
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data: frontMatter, content } = matter(fileContents);
 
+  // Debugging: Check the extracted front matter
+ 
+
   const safeFrontMatter = {
     ...frontMatter,
     featuredImage: frontMatter.featuredImage || '', // Ensure featuredImage is always a string
-    date: new Date(frontMatter.date).toLocaleDateString('en-US', {
+    date: frontMatter.date ? new Date(frontMatter.date).toLocaleDateString('en-US', {
       day: 'numeric',
       month: 'long',
       year: 'numeric',
-    }), // Format date here
+    }) : '', // Format date here, ensure date is valid
+    author: frontMatter.author || 'Unknown', // Ensure author is always a string
   };
 
   return {
@@ -57,11 +62,12 @@ export function getAllPosts(): Post[] {
       const safeFrontMatter = {
         ...frontMatter,
         featuredImage: frontMatter.featuredImage || '', // Ensure featuredImage is always a string
-        date: new Date(frontMatter.date).toLocaleDateString('en-US', {
+        date: frontMatter.date ? new Date(frontMatter.date).toLocaleDateString('en-US', {
           day: 'numeric',
           month: 'long',
           year: 'numeric',
-        }), // Format date here as well
+        }) : '', // Format date here, ensure date is valid
+        author: frontMatter.author || 'Unknown', // Ensure author is always a string
       };
 
       return {
