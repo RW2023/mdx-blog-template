@@ -37,11 +37,13 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with `create-next-
 Create a new `.mdx` file in the `content/posts` directory.
 
 
+"
 ---
 title: "My New Blog Post"
 date: "2024-08-30"
 featuredImage: "/images/my-image.jpg"
 ---
+"
 
 # My New Blog Post
 
